@@ -20,7 +20,11 @@ app.set("trust proxy", true);
 app.use(express.static("public"));
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://drive.ravosoft.com"],
+    origin: [
+      "http://localhost:5173",
+      "https://drive.ravosoft.com",
+      "https://photohub-alpha.vercel.app",
+    ],
     credentials: true,
   }),
 );
