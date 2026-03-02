@@ -1,5 +1,5 @@
 import express, { NextFunction } from "express";
-import authController from "@/controllers/authController.ts";
+import authController from "@/controllers/authController";
 import authMiddleware from "@/middlewares/authMiddleware";
 import passport from "@/config/googlePassport";
 const router = express.Router();
@@ -9,7 +9,7 @@ router.get(
   passport.authenticate("google", {
     scope: ["profile", "email"],
     session: false,
-  }),
+  })
 );
 router.get(
   "/google/callback",
@@ -17,7 +17,7 @@ router.get(
     session: false,
     failureRedirect: "/login",
   }),
-  authController.oauth2LoginCallback,
+  authController.oauth2LoginCallback
 );
 
 router.get("/test", authController.testPing);

@@ -1,5 +1,5 @@
 import express from "express";
-import { albumController } from "@/controllers/albumController.ts";
+import { albumController } from "@/controllers/albumController";
 import authMiddleware from "@/middlewares/authMiddleware";
 import { upload } from "@/tools/image";
 

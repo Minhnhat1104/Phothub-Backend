@@ -1,5 +1,5 @@
 import express from "express";
-import imageController from "@/controllers/imageController.ts";
+import imageController from "@/controllers/imageController";
 import authMiddleware from "@/middlewares/authMiddleware";
 import { upload } from "@/tools/image";
 
@@ -13,32 +13,32 @@ router.get("/:id", authMiddleware.verifyToken, imageController.getImageById);
 router.patch(
   "/update/:id",
   authMiddleware.verifyToken,
-  imageController.updateImage,
+  imageController.updateImage
 );
 
 router.delete(
   "/delete/:id",
   authMiddleware.verifyToken,
-  imageController.deleteImage,
+  imageController.deleteImage
 );
 
 router.post(
   "/favorite",
   authMiddleware.verifyToken,
-  imageController.setFavoriteImage,
+  imageController.setFavoriteImage
 );
 
 router.post(
   "/edit",
   authMiddleware.verifyToken,
   upload.single("photo"),
-  imageController.setEditImage,
+  imageController.setEditImage
 );
 
 router.post(
   "/reset",
   authMiddleware.verifyToken,
-  imageController.resetToOriginImage,
+  imageController.resetToOriginImage
 );
 
 export default router;

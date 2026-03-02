@@ -7,7 +7,6 @@
     "types": ["node"],
     "typeRoots": ["node_modules/@types"],
     "noEmit": true,
-    "allowImportingTsExtensions": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "baseUrl": ".",
