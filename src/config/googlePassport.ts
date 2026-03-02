@@ -20,8 +20,8 @@ async function downloadGoogleAvatar(url: string) {
     contentType === "image/png"
       ? "png"
       : contentType === "image/webp"
-        ? "webp"
-        : "jpg";
+      ? "webp"
+      : "jpg";
 
   const filename = `avatar_${crypto.randomUUID()}.${ext}`;
   const filePath = path.join(avatarDir, filename);
@@ -57,7 +57,7 @@ passport.use(
           });
 
           if (currentUser) {
-            return done(null, currentUser);
+            return done(null, currentUser as any);
           }
 
           const emailUser = await prisma?.user.findUnique({
@@ -72,7 +72,7 @@ passport.use(
           });
 
           if (emailUser) {
-            return done(null, emailUser);
+            return done(null, emailUser as any);
           }
 
           const avatar = profile.photos?.[0]?.value || "";
@@ -120,7 +120,7 @@ passport.use(
           });
 
           if (newUser) {
-            return done(null, newUser);
+            return done(null, newUser as any);
           } else {
             throw new Error("Login with google failed!");
           }
@@ -128,8 +128,8 @@ passport.use(
       } catch (err) {
         done(err, false);
       }
-    },
-  ),
+    }
+  )
 );
 
 export default passport;
